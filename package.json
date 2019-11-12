@@ -10,7 +10,7 @@
     "license": "ISC",
     "dependencies": {
         "es6-module-loader": "^0.17.11",
-        "jquery": "^2.2.4",
+        "jquery": "^3.4.0",
         "systemjs": "^0.19.27",
         "traceur": "0.0.108"
     },
