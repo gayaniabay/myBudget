@@ -1,5 +1,5 @@
 
-export let users = [
+export let usersObj = [
         {
             "_id": "5cd3a86edc4315a4f8dbeb2f",
             "picture": "https://www.w3schools.com/w3images/avatar2.png",

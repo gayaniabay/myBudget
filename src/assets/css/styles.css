@@ -1,0 +1,20 @@
+@import url("framework.css");
+@import url("typography.css");
+@import url("card.css");
+
+
+body{
+    background-color: #f9f9fc;
+}
+.padding-lr-5{
+    padding: 0 5px;
+}
+.text-right{
+    text-align: right;
+}
+.no-padding{
+    padding: 0;
+}
+.padding-10{
+    padding: 0 10px;
+}

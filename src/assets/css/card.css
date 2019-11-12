@@ -1,0 +1,29 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+}
+.card__header{
+    padding: 20px 25px;
+    border-bottom: 1px solid #ebedf2;
+}
+.card__body{
+    padding: 25px;
+}
+.card__image{
+    width: 50px;
+    border-radius: 4px;
+    padding: 0;
+    margin-right: 20px;
+}
+.card__divider{
+    padding: 20px 0;
+    border-bottom: 1px dashed #ebedf2;
+}
+.card__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+.container{
+    margin: 0 auto;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.col-1,.col-2,.col-3,.col-6,.col-7{
+    padding: 0 10px;
+}
+.col-1{
+    width: 10%;
+}
+.col-2{
+    width: 20%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 70%;
+}
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
