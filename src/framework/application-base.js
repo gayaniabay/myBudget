@@ -3,7 +3,6 @@ import {UserCard} from '../classes/user-card.js';
 import {DebtCard} from '../classes/debt-card.js';
 import {usersObj} from '../data/user.js';
 import {TitleBar} from '../ui/title-bar.js';
-import {Image} from '../ui/image.js';
 import {Card} from '../ui/user-card.js';
 
 export class ApplicationBase{
@@ -42,4 +41,5 @@ export class ApplicationBase{
             this.activateRoute(this.defaultRoute);
         }
     }
+
 }

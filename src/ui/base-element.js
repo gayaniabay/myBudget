@@ -15,4 +15,9 @@ export class BaseElement{
         let ele = this.getElementString();
         this.element = $(ele);
     }
+
+    setStyleString(style) {
+        this.styleString = style;
+        console.log('foo');
+    }
 }

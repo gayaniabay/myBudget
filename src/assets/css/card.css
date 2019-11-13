@@ -11,6 +11,8 @@
 }
 .card__body{
     padding: 25px;
+    height: 70vh;
+    overflow-y: scroll;
 }
 .card__image{
     width: 50px;

@@ -1,13 +1,13 @@
 import {BaseElement} from '../src/ui/base-element.js';
 import {usersObj} from './data/user.js';
 import {debtsObj} from './data/debts.js'
-import {Image} from '../src/ui/image.js';
 import {Card} from '../src/ui/card.js'
 import {UserCard} from '../src/ui/user-card.js';
 import {DebtCard} from '../src/ui/debt-card.js';
-import {Search} from '../src/ui/search.js';
+
 
 export let filteredObj;
+export let debtFilteredObj;
 
 export class HomePage extends BaseElement{
 
@@ -16,6 +16,7 @@ export class HomePage extends BaseElement{
         this.data = usersObj;
         this.filteredObj = filteredObj;
         this.debtData = debtsObj;
+        this.debtFilteredObj = debtFilteredObj;
         this.selectedValue = selectedValue;
     }
     
@@ -60,8 +61,27 @@ export class HomePage extends BaseElement{
             $('.users-block .card__divider').remove();
             $(userCardList).replaceWith(userCardFiltered.appendToElement(userCardData));
         });
-    }
 
+        let searchCategory = this.element.find('#search_input_debt');
+        searchCategory.change((event) => {
+            this.selectedValue = searchCategory.val();
+
+            //find selected item
+            this.id = $('#data_list_debt').find('option[value="' +this.selectedValue + '"]').attr('id');
+
+            this.debtFilteredObj = this.debtData.filter(x => x._id == this.id);
+
+            //display selected item
+            let debtCardFiltered = new DebtCard(this.debtFilteredObj);
+            $(debtCardList).remove();
+            $('.debt-block .card__divider').remove();
+            $(debtCardList).replaceWith(debtCardFiltered.appendToElement(debtCardData));
+        });
+        
+    }
+    setStyleString(){
+        
+    }
     getElementString(){
         let setOption = '';
         let list = '';
@@ -74,7 +94,7 @@ export class HomePage extends BaseElement{
         };
         for(let category of this.debtData){
             setDebtOption += `
-                <option value="${category.description}">${category.description}</option>
+                <option value="${category.description}" id="${category._id}">${category.description}</option>
             `
         }
         

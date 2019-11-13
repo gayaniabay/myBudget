@@ -5,7 +5,6 @@ import jquery from 'jquery';
 import {UserCard} from './classes/user-card.js';
 import {DebtCard} from './classes/debt-card.js';
 import {usersObj} from './data/user.js';
-import {Image} from './ui/image.js';
 import {Card} from './ui/user-card.js';
 import {TitleBar} from './ui/title-bar.js';
 
@@ -20,4 +19,5 @@ export class App extends ApplicationBase{
 }
 export let application = new App();
 application.show($('app-root'));
+
  
