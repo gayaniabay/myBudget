@@ -9,9 +9,9 @@ export class UserCard extends BaseElement{
     }
 
     getElementString(){
-        let title = '';
+        let userCard = '';
         for(let user of this.data){
-            title += `
+            userCard += `
                 <div class="card__divider">
                         <div class="card__top">
                             <img src="${user.picture}" class="col-1 card__image"/>
@@ -26,14 +26,7 @@ export class UserCard extends BaseElement{
             `
         }
         return `
-            <div class="card">
-                <div class="card__header">
-                    <h3>Users in debt</h3>
-                </div>
-                <div class="card__body">
-                        ${title}
-                </div>
-            </div>
+            ${userCard}
         `;
     }
 }

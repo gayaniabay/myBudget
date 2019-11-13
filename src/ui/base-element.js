@@ -15,8 +15,4 @@ export class BaseElement{
         let ele = this.getElementString();
         this.element = $(ele);
     }
-
-    getElementString(){
-        throw 'Please override getElementString() in base element'
-    }
 }

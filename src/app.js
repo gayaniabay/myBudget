@@ -18,7 +18,6 @@ export class App extends ApplicationBase{
         this.addRoute('home', new HomePage(), true);
     }
 }
-
 export let application = new App();
 application.show($('app-root'));
  
