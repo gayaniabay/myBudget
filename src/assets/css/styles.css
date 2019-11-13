@@ -21,3 +21,14 @@ body{
 .hide-element{
     display: none;
 }
+.button{
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    background-color: #cecee6;
+    border: 1px solid  #cecee6;
+    color: #59599e;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #c2c2e8;
+}

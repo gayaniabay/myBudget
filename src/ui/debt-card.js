@@ -1,3 +1,4 @@
+import jquery from 'jquery';
 import {BaseElement} from './base-element.js';
 
 export class DebtCard extends BaseElement{
@@ -8,6 +9,7 @@ export class DebtCard extends BaseElement{
     }
     getElementString(){
         let debtCard = '';
+        // ${d.escalate}
         for(let d of this.data){
             debtCard += `
                 <div class="card__divider">
@@ -16,8 +18,9 @@ export class DebtCard extends BaseElement{
                             <div class="card__info text-right col-6">
                                 <h4><lable>${d.payment}</lable> <span>${d.balance}</span></h4>
                             </div>
-                            <span class="col-3 text-right no-padding">
-                            ${d.escalate}
+                            <span class="col-3 text-right no-padding escalate">
+                                <button type="button" class="button">Escalate</button>
+                                
                             </span>
                         </div>
                         <div class="card__info">

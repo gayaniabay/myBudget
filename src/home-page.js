@@ -45,6 +45,9 @@ export class HomePage extends BaseElement{
         let debtCardData = this.element.find('.debt-block .card__body');
         debtCard.appendToElement(debtCardList);
 
+        let getEscalateText = this.element.find('.escalate').text();
+        
+
 
         let searchUsers = this.element.find('#search_input');
         searchUsers.change((event) => {
@@ -80,7 +83,7 @@ export class HomePage extends BaseElement{
         
     }
     setStyleString(){
-        
+
     }
     getElementString(){
         let setOption = '';
