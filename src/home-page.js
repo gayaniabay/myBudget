@@ -1,55 +1,106 @@
 import {BaseElement} from '../src/ui/base-element.js';
 import {usersObj} from './data/user.js';
+import {debtsObj} from './data/debts.js'
 import {Image} from '../src/ui/image.js';
 import {Card} from '../src/ui/card.js'
 import {UserCard} from '../src/ui/user-card.js';
+import {DebtCard} from '../src/ui/debt-card.js';
 import {Search} from '../src/ui/search.js';
 
+export let filteredObj;
 
 export class HomePage extends BaseElement{
 
-    constructor(fileName){
+    constructor(selectedValue){
         super();
-        this.fileName = fileName;
+        this.data = usersObj;
+        this.filteredObj = filteredObj;
+        this.debtData = debtsObj;
+        this.selectedValue = selectedValue;
     }
     
     createElement() {
         super.createElement();
-        
-        let i = new Image('https://www.w3schools.com/w3images/avatar2.png');
-        let imageBlock = this.element.find('.img-block');
-        i.appendToElement(imageBlock);
 
         let selectedValue = '';
-        let search = new Search(selectedValue);
+        let selectedId = '';
+        
 
-        let card = new Card();
+        let card = new Card('User in debt');
         let userBlock = this.element.find('.users-block');
-        search.appendToElement(userBlock);
         card.appendToElement(userBlock);
 
-        let userCard = new UserCard();
-        let cardBody = this.element.find('.card__body');
-        userCard.appendToElement(cardBody);
+        let cardDebt = new Card('Debts');
+        let debtBlock = this.element.find('.debt-block');
+        cardDebt.appendToElement(debtBlock);
 
-        // let searchUsers = this.element.find('#search_input');
-        // searchUsers.change((event) => {
-        //     this.selectedValue = searchUsers.val();
-        //         return selectedValue;
-        //     //console.log(this.selectedValue);
-        // });
+        let userCard = new UserCard(this.data);
+        let userCardList = this.element.find('.users-block #card-list');
+        let userCardData = this.element.find('.users-block .card__body');
+        userCard.appendToElement(userCardList);
+
+        let debtCard = new DebtCard(this.debtData);
+        let debtCardList = this.element.find('.debt-block #card-list');
+        let debtCardData = this.element.find('.debt-block .card__body');
+        debtCard.appendToElement(debtCardList);
+
+
+        let searchUsers = this.element.find('#search_input');
+        searchUsers.change((event) => {
+            this.selectedValue = searchUsers.val();
+
+            //find selected item
+            this.id = $('#data_list').find('option[value="' +this.selectedValue + '"]').attr('id');
+            this.filteredObj = this.data.filter(x => x._id == this.id);
+            console.log(this.filteredObj);
+
+            //display selected item
+            let userCardFiltered = new UserCard(this.filteredObj);
+            $(userCardList).remove();
+            $('.users-block .card__divider').remove();
+            $(userCardList).replaceWith(userCardFiltered.appendToElement(userCardData));
+        });
     }
 
     getElementString(){
+        let setOption = '';
+        let list = '';
+        let setDebtOption = '';
+       
+        for(let user of this.data){
+            setOption += `
+                <option value="${user.firstName} ${user.lastName}" id="${user._id}">${user.firstName} ${user.lastName}</option>
+            `
+        };
+        for(let category of this.debtData){
+            setDebtOption += `
+                <option value="${category.description}">${category.description}</option>
+            `
+        }
+        
         return `
                 <div class="row">
                     <div class="col-6"> 
-                        
                         <div class="users-block">
+                            <div class="search">
+                                <datalist id="data_list">
+                                    <select name="data">
+                                        ${setOption}
+                                    </select>
+                                </datalist>
+                                <input type="text" name="name" id="search_input" value="" list="data_list" placeholder="Search by username">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 img-block">
-                        
+                    <div class="col-6 debt-block">
+                        <div class="search">
+                            <datalist id="data_list_debt">
+                                <select name="data">
+                                    ${setDebtOption}
+                                </select>
+                            </datalist>
+                            <input type="text" name="name" id="search_input_debt" value="" list="data_list_debt" placeholder="Search by debt description">
+                        </div>
                     </div>
                 </div>
          `;

@@ -1,13 +1,11 @@
 import {BaseElement} from './base-element.js';
-import {usersObj} from '../data/user.js';
 
 export class UserCard extends BaseElement{
 
     constructor(data){
         super();
-        this.data = usersObj;
+        this.data = data;
     }
-
     getElementString(){
         let userCard = '';
         for(let user of this.data){

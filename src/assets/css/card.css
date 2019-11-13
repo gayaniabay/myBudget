@@ -27,3 +27,25 @@
     align-items: center;
     justify-content: space-between;
 }
+.card__info lable{
+    color: #74788d;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+.search{
+    text-align: center;
+}
+.search input{
+    height: 30px;
+    margin: 10px 0;
+    padding: 5px 20px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border: 1px solid #ebedf2;
+    width: 85%;
+    border-radius: 4px;
+}
+.search datalist, .search option{
+    width: 85%;
+    margin: 10px;
+}

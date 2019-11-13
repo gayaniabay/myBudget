@@ -24,12 +24,12 @@ export class TitleBar extends BaseElement {
                 <header>
                     <div>
                     <!-- Title -->
-                    <span>${this.title}</span>
+                    <span></span>
                     <!-- Add spacer, to align navigation to the right -->
                     <div class="mdl-layout-spacer"></div>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav>
-                        ${links}
+                       
                     </nav>
                     </div>
                 </header>
